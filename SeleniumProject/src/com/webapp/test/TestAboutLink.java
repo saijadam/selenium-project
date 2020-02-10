@@ -27,7 +27,6 @@ public class TestAboutLink
     
     @BeforeClass
     public static void setUp() {
-        System.out.println("*******************");
         System.out.println("Launching chrome browser.......");
         System.setProperty("webdriver.chrome.driver", String.valueOf(TestAboutLink.driverPath) + "chromedriver.exe");
         TestAboutLink.driver = (WebDriver)new ChromeDriver();
@@ -41,7 +40,9 @@ public class TestAboutLink
         final WebDriverWait wait = new WebDriverWait(TestAboutLink.driver, 30L);
         wait.until((Function)ExpectedConditions.visibilityOfElementLocated(By.linkText("About")));
         TestAboutLink.driver.findElement(By.linkText("About")).click();
+        System.out.println("*******************");
         System.out.println("Text From Page: " + TestAboutLink.driver.findElement(By.id("PID-ab2-pg")).getText());
+        System.out.println("*******************");
         Assert.assertTrue("Test Failed: Note Found \"about\" string in About Page", TestAboutLink.driver.findElement(By.id("PID-ab2-pg")).getText().contains("about"));
     }
     
