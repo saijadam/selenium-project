@@ -32,7 +32,7 @@ public class TestAboutLink
         System.out.println("Launching chrome browser.......");
         //System.setProperty("webdriver.chrome.driver", String.valueOf(TestAboutLink.driverPath) + "chromedriver");
         //TestAboutLink.driver = (WebDriver)new ChromeDriver();
-        driver = webdriver.Chrome('/usr/local/bin/chromedriver');
+        driver = webdriver.Chrome("/usr/local/bin/chromedriver");
         TestAboutLink.driver.manage().window().maximize();
         TestAboutLink.driver.manage().timeouts().implicitlyWait(30L, TimeUnit.SECONDS);
     }
