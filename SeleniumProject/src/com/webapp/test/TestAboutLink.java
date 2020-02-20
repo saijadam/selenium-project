@@ -16,6 +16,7 @@ import org.junit.BeforeClass;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.WebDriver;
 
 public class TestAboutLink
@@ -34,7 +35,15 @@ public class TestAboutLink
         System.out.println("Launching chrome browser.......");
         File chromeDriver = new File("/usr/local/bin/chromedriver");
         System.setProperty("webdriver.chrome.driver", chromeDriver.getAbsolutePath());
-        TestAboutLink.driver = (WebDriver)new ChromeDriver();
+        
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        
+        
+        //TestAboutLink.driver = (WebDriver)new ChromeDriver();
+        TestAboutLink.driver = (WebDriver)new ChromeDriver(options);
         
         TestAboutLink.driver.manage().window().maximize();
         TestAboutLink.driver.manage().timeouts().implicitlyWait(30L, TimeUnit.SECONDS);
