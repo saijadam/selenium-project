@@ -23,16 +23,16 @@ public class TestAboutLink
     
     static {
         //TestAboutLink.driverPath = "C:\\Users\\SJM1\\Downloads\\chromedriver_win32\\";
-    	TestAboutLink.driverPath = "D:\\SeleniumTraining\\SeleniumProject\\lib\\";
-        
-    	//TestAboutLink.driverPath = "//usr//local//bin//";
+    	//TestAboutLink.driverPath = "D:\\SeleniumTraining\\SeleniumProject\\lib\\";
+        TestAboutLink.driverPath = "//usr//local//bin//";
     }
     
     @BeforeClass
     public static void setUp() {
         System.out.println("Launching chrome browser.......");
-        System.setProperty("webdriver.chrome.driver", String.valueOf(TestAboutLink.driverPath) + "chromedriver.exe");
-        TestAboutLink.driver = (WebDriver)new ChromeDriver();
+        //System.setProperty("webdriver.chrome.driver", String.valueOf(TestAboutLink.driverPath) + "chromedriver");
+        //TestAboutLink.driver = (WebDriver)new ChromeDriver();
+        driver = webdriver.Chrome('/usr/local/bin/chromedriver');
         TestAboutLink.driver.manage().window().maximize();
         TestAboutLink.driver.manage().timeouts().implicitlyWait(30L, TimeUnit.SECONDS);
     }
