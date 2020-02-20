@@ -23,7 +23,9 @@ public class TestAboutLink
     
     static {
         //TestAboutLink.driverPath = "C:\\Users\\SJM1\\Downloads\\chromedriver_win32\\";
-    	TestAboutLink.driverPath = "//usr//local//bin//";
+    	TestAboutLink.driverPath = "D:\\SeleniumTraining\\SeleniumProject\\lib\\";
+        
+    	//TestAboutLink.driverPath = "//usr//local//bin//";
     }
     
     @BeforeClass
@@ -36,7 +38,7 @@ public class TestAboutLink
     }
     
     @Test
-    public void testGooglePageTitleInIEBrowser() {
+    public void testAboutLink() {
         TestAboutLink.driver.navigate().to("http://13.58.217.43:9999//projCert/website/content/home.php");
         final WebDriverWait wait = new WebDriverWait(TestAboutLink.driver, 30L);
         wait.until((Function)ExpectedConditions.visibilityOfElementLocated(By.linkText("About")));
