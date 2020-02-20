@@ -12,6 +12,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.junit.BeforeClass;
+
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebDriver;
@@ -30,9 +32,10 @@ public class TestAboutLink
     @BeforeClass
     public static void setUp() {
         System.out.println("Launching chrome browser.......");
-        //System.setProperty("webdriver.chrome.driver", String.valueOf(TestAboutLink.driverPath) + "chromedriver");
-        //TestAboutLink.driver = (WebDriver)new ChromeDriver();
-        driver = webdriver.Chrome("/usr/local/bin/chromedriver");
+        File chromeDriver = new File("/usr/local/bin/chromedriver");
+        System.setProperty("webdriver.chrome.driver", chromeDriver.getAbsolutePath());
+        TestAboutLink.driver = (WebDriver)new ChromeDriver();
+        
         TestAboutLink.driver.manage().window().maximize();
         TestAboutLink.driver.manage().timeouts().implicitlyWait(30L, TimeUnit.SECONDS);
     }
